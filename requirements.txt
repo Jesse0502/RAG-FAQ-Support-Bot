@@ -10,6 +10,7 @@ antlr4-python3-runtime==4.9.3
 anyio==4.11.0
 attrs==25.4.0
 backoff==2.2.1
+poppler-utils
 beautifulsoup4==4.14.2
 blinker==1.9.0
 cachetools==6.2.2
