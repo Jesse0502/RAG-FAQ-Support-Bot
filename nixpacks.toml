@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ["python3", "poppler_utils", "poppler", "tesseract"]
+nixPkgs = ["python3", "gcc", "g++", "make", "cmake"]
 
 [phases.install]
 cmds = ["pip install -r requirements.txt"]
 
 [start]
-cmd = "uvicorn main:app --host 0.0.0.0 --port 8080"
+cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
