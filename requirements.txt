@@ -1,11 +1,14 @@
-grpcio>=1.60.0
-grpcio-status>=1.60.0
+# Pre-install critical binaries
+grpcio==1.62.1
+grpcio-status==1.62.1
+grpcio-tools==1.62.1
+protobuf==4.25.3
+
 fastapi>=0.112.0
 uvicorn>=0.30.0
 python-dotenv>=1.0.0
 pydantic>=2.8.0
 pydantic-settings>=2.4.0
-# Using stable 0.2.x series to avoid dependency hell
 langchain==0.2.16
 langchain-community==0.2.16
 langchain-core==0.2.38
