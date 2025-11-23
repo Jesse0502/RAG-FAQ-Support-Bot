@@ -110,8 +110,21 @@ class RAGService:
             raw_documents = loader.load()
         else:
             # Load all documents from directory
-            loader = DirectoryLoader(settings.documents_dir)
-            raw_documents = loader.load()
+            # Use glob to specify which files to load and avoid unstructured dependency
+            import glob
+            raw_documents = []
+            
+            # Load PDF files
+            pdf_files = glob.glob(os.path.join(settings.documents_dir, "*.pdf"))
+            for pdf_file in pdf_files:
+                loader = PyPDFLoader(pdf_file)
+                raw_documents.extend(loader.load())
+            
+            # Load text files
+            txt_files = glob.glob(os.path.join(settings.documents_dir, "*.txt"))
+            for txt_file in txt_files:
+                loader = TextLoader(txt_file)
+                raw_documents.extend(loader.load())
 
         # Add metadata for source tracking
         for doc in raw_documents:
